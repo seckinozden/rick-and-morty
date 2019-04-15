@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: morty-service
+spec:
+  type: NodePort
+  selector:
+    app: morty
+  ports:
+  - protocol: TCP
+    targetPort: 8080
+    port: 80
+  

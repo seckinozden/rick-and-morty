@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rick-service
+spec:
+  type: NodePort
+  selector:
+    app: rick
+  ports:
+  - protocol: TCP
+    targetPort: 8080
+    port: 80
+  

@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rick-and-morty-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: rick-and-morty.com
+    http:
+      paths:
+      - path: /rick/?(.*)
+        backend:
+          serviceName: rick-service
+          servicePort: 80
+      - path: /morty/?(.*)
+        backend:
+          serviceName: morty-service
+          servicePort: 80

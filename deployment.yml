@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: morty-deployment
+  labels:
+    app: morty
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: morty
+  template:
+    metadata:
+      labels:
+        app: morty
+    spec:
+      containers:
+      - name: 
+        image: seckinozden/morty:0.1
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
